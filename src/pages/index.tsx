@@ -7,6 +7,7 @@ import { api, type RouterOutputs } from "../utils/api";
 import { Header } from "../components/Header";
 import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
+import { Input, Item, Label, ListBox, Selection, TextField } from "react-aria-components";
 
 const Home: NextPage = () => {
   return (
@@ -73,27 +74,31 @@ const Content: React.FC = () => {
   return (
     <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
       <div className="px-2">
-        <ul className="menu rounded-box w-56 bg-base-100 p-2">
-          {topics?.map((topic) => (
-            <li key={topic.id}>
-              <a
-                href="#"
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  setSelectedTopic(topic);
-                }}
-              >
-                {topic.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+
+        <ListBox
+          label="topics"
+          items={topics}
+          className="btn-group btn-group-vertical w-56 bg-base-100 p-2"
+          selectionMode="single"
+          selectedKeys={selectedTopic == null ? undefined : [selectedTopic.id]}
+          onSelectionChange={
+            ([id]) => setSelectedTopic(topics?.find(topic => topic.id === id) ?? null)}
+        >
+
+          {(topic: Topic) => (
+            <Item
+              id={topic.id}
+              className={({ isSelected }) => isSelected ? "btn btn-active" : "btn btn-ghost"}
+            >
+              {topic.title}
+            </Item>
+          )}
+        </ListBox>
+
         <div className="divider"></div>
-        <input
-          type="text"
-          placeholder="New Topic"
-          className="input-bordered input input-sm w-full"
-          onKeyDown={(e) => {
+        <TextField
+          inputMode="text"
+          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === "Enter") {
               createTopic.mutate({
                 title: e.currentTarget.value,
@@ -101,7 +106,12 @@ const Content: React.FC = () => {
               e.currentTarget.value = "";
             }
           }}
-        />
+        >
+          <Label className="label label-text">New Topic</Label>
+          <Input
+            className="input-bordered input input-sm w-full"
+          />
+        </TextField>
       </div>
       <div className="col-span-3">
         <div>

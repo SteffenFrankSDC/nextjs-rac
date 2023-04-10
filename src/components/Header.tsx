@@ -1,5 +1,6 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { Button } from "react-aria-components";
 
 export const Header = () => {
     const { data: sessionData } = useSession();
@@ -27,12 +28,12 @@ export const Header = () => {
                             </div>
                         </label>
                     ) : (
-                        <button
+                        <Button
                             className="btn-ghost rounded-btn btn"
-                            onClick={() => void signIn()}
+                            onPress={() => void signIn()}
                         >
                             Sign in
-                        </button>
+                        </Button>
                     )}
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
+import { Button } from "react-aria-components";
 
 export const NoteEditor = ({
   onSave,
@@ -14,7 +15,7 @@ export const NoteEditor = ({
 
   return (
     <div className="card mt-5 border border-gray-200 bg-base-100 shadow-xl">
-      <div className="card-body">
+      <div className="card-body  m-0 p-3">
         <h2 className="card-title">
           <input
             type="text"
@@ -31,15 +32,16 @@ export const NoteEditor = ({
           minWidth="100%"
           minHeight="30vh"
           extensions={[
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
             markdown({ base: markdownLanguage, codeLanguages: languages }),
           ]}
-          onChange={(value) => setCode(value)}
+          onChange={(value: string) => setCode(value)}
           className="border border-gray-300"
         />
       </div>
-      <div className="card-actions justify-end">
-        <button
-          onClick={() => {
+      <div className="card-actions m-5 flex justify-end">
+        <Button
+          onPress={() => {
             onSave({
               title,
               content: code,
@@ -47,11 +49,11 @@ export const NoteEditor = ({
             setCode("");
             setTitle("");
           }}
-          className="btn-primary btn"
-          disabled={title.trim().length === 0 || code.trim().length === 0}
+          className="btn-primary btn px-5"
+          isDisabled={title.trim().length === 0 || code.trim().length === 0}
         >
           Save
-        </button>
+        </Button>
       </div>
     </div>
   );
