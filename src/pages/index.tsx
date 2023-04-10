@@ -7,7 +7,7 @@ import { api, type RouterOutputs } from "../utils/api";
 import { Header } from "../components/Header";
 import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
-import { Input, Item, Label, ListBox, Selection, TextField } from "react-aria-components";
+import { Input, Item, Label, ListBox, TextField } from "react-aria-components";
 
 const Home: NextPage = () => {
   return (
