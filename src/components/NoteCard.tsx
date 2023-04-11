@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Button } from "react-aria-components";
+
 
 import ReactMarkdown from "react-markdown";
+import { Button } from "~/design-system/Button";
 
 import { type RouterOutputs } from "../utils/api";
 
@@ -32,7 +33,7 @@ export const NoteCard = ({
           </div>
         </div>
         <div className="card-actions mx-2 flex justify-end">
-          <Button className="btn-warning btn-xs btn px-5" onPress={onDelete}>
+          <Button className="btn-warning btn-xs px-5" onPress={onDelete}>
             Delete
           </Button>
         </div>
