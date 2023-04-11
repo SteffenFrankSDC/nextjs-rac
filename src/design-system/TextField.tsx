@@ -13,60 +13,38 @@ import type {
     InputRenderProps,
     TextProps
 } from "react-aria-components";
-import type { ReactNode, FC } from "react";
-
-type RACTextFieldProps = {
-    children?: ReactNode | ((values: InputProps) => ReactNode),
-    className?: string
-} & TextFieldProps & React.RefAttributes<HTMLDivElement>
-
-type RACLabelProps = {
-    className?: string
-} & LabelProps & React.RefAttributes<HTMLLabelElement>
-
-type RACInputProps = {
-    className?: string | ((values: InputRenderProps) => string)
-} & InputProps & React.RefAttributes<HTMLInputElement>
-
-type RACTextProps = {
-    className?: string,
-    slot: "errorMessage" | "description"
-} & TextProps & React.RefAttributes<HTMLElement>
 
 
-export const TextField:
-    FC<RACTextFieldProps> =
-    ({ children, className, ...props }) => {
+export function TextField({ children, className, ...props }: TextFieldProps) {
 
-        const classNameString = [
-            "form-control",
-            className
-        ].join(" ");
+    const classNameString = [
+        "form-control",
+        className
+    ].join(" ");
 
-        return <RACTextField
-            className={classNameString}
-            {...props}
-        >
-            {children}
-        </RACTextField >;
-    }
+    return <RACTextField
+        className={classNameString}
+        {...props}
+    >
+        {children}
+    </RACTextField >;
+}
 
-export const Label:
-    FC<RACLabelProps> =
-    ({ className, ...props }) => {
+export function Label({ className, ...props }: LabelProps) {
 
-        const classNameString = [
-            "label label-text",
-            className
-        ].join(" ");
+    const classNameString = [
+        "label label-text",
+        className
+    ].join(" ");
 
-        return <RACLabel
-            className={classNameString}
-            {...props}
-        />;
-    }
+    return <RACLabel
+        className={classNameString}
+        {...props}
+    />;
+}
 
-export const Input: FC<RACInputProps> = ({ className, ...props }) => {
+export function Input({ className, ...props }: InputProps) {
+
     const userClassNameFn = typeof className === "function" ? className : () => className;
 
     const classNameFn = (props: InputRenderProps) => {
@@ -88,19 +66,17 @@ export const Input: FC<RACInputProps> = ({ className, ...props }) => {
     />
 }
 
-export const Text:
-    FC<RACTextProps> =
-    ({ className, slot, ...props }) => {
+export function Text({ className, slot, ...props }: TextProps) {
 
-        const classNameString = [
-            "label-text-alt",
-            slot == "errorMessage" ? "text-error" : "text-neutral",
-            className
-        ].join(" ");
+    const classNameString = [
+        "label-text-alt",
+        slot == "errorMessage" ? "text-error" : "text-neutral",
+        className
+    ].join(" ");
 
-        return <RACText
-            className={classNameString}
-            slot={slot}
-            {...props}
-        />;
-    }
+    return <RACText
+        className={classNameString}
+        slot={slot}
+        {...props}
+    />;
+}

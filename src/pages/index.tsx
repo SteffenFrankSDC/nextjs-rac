@@ -117,6 +117,7 @@ const Content: React.FC = () => {
           <Label><Text slot="description">ENTER to create new topic</Text></Label>
         </TextField>
       </div>
+
       <div className="col-span-3">
         <div>
           {notes?.map((note) => (
