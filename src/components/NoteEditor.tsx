@@ -4,6 +4,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
 import { Button } from "react-aria-components";
+import { Input } from "~/design-system/TextField";
 
 export const NoteEditor = ({
   onSave,
@@ -17,10 +18,10 @@ export const NoteEditor = ({
     <div className="card mt-5 border border-gray-200 bg-base-100 shadow-xl">
       <div className="card-body  m-0 p-3">
         <h2 className="card-title">
-          <input
+          <Input
             type="text"
             placeholder="Note title"
-            className="input-primary input input-lg w-full font-bold"
+            className="input-primary input-lg w-full font-bold"
             value={title}
             onChange={(e) => setTitle(e.currentTarget.value)}
           />

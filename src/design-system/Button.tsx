@@ -5,8 +5,8 @@ import type { ButtonProps, ButtonRenderProps } from "react-aria-components";
 import type { ReactNode, FC } from "react";
 
 type RACButtonProps = {
-    children: ReactNode | ((values: ButtonRenderProps) => ReactNode),
-    className: string | ((values: ButtonRenderProps) => string)
+    children?: ReactNode | ((values: ButtonRenderProps) => ReactNode),
+    className?: string | ((values: ButtonRenderProps) => string)
 } & ButtonProps & React.RefAttributes<HTMLButtonElement>
 
 export const Button:

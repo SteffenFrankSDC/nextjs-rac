@@ -7,7 +7,8 @@ import { api, type RouterOutputs } from "../utils/api";
 import { Header } from "../components/Header";
 import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
-import { Input, Item, Label, ListBox, TextField } from "react-aria-components";
+import { Item, ListBox } from "react-aria-components";
+import { TextField, Label, Input, Text } from "~/design-system/TextField";
 
 const Home: NextPage = () => {
   return (
@@ -107,10 +108,13 @@ const Content: React.FC = () => {
             }
           }}
         >
-          <Label className="label label-text">New Topic</Label>
+          <Label>
+            New Topic
+          </Label>
           <Input
-            className="input-bordered input input-sm w-full"
+            className="w-full"
           />
+          <Label><Text slot="description">ENTER to create new topic</Text></Label>
         </TextField>
       </div>
       <div className="col-span-3">
