@@ -2,7 +2,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import { Button } from "react-aria-components";
 
-export const Header = () => {
+export const AppHeader = () => {
     const { data: sessionData } = useSession();
 
     return (

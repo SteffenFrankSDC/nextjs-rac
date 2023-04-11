@@ -4,11 +4,12 @@ import Head from "next/head";
 import { useSession } from "next-auth/react";
 
 import { api, type RouterOutputs } from "../utils/api";
-import { Header } from "../components/Header";
+import { AppHeader } from "../components/Header";
 import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
-import { Item, ListBox } from "react-aria-components";
 import { TextField, Label, Input, Text } from "~/design-system/TextField";
+import { ListBox, Section, Header, Item, Text as ItemText } from "~/design-system/ListBox";
+import { Collection } from "react-aria-components";
 
 const Home: NextPage = () => {
   return (
@@ -19,7 +20,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header />
+        <AppHeader />
         <Content />
       </main>
     </>
@@ -79,21 +80,21 @@ const Content: React.FC = () => {
         <ListBox
           label="topics"
           items={topics}
-          className="btn-group btn-group-vertical w-56 bg-base-100 p-2"
           selectionMode="single"
           selectedKeys={selectedTopic == null ? undefined : [selectedTopic.id]}
           onSelectionChange={
             ([id]) => setSelectedTopic(topics?.find(topic => topic.id === id) ?? null)}
         >
-
-          {(topic: Topic) => (
-            <Item
-              id={topic.id}
-              className={({ isSelected }) => isSelected ? "btn btn-active" : "btn btn-ghost"}
-            >
-              {topic.title}
-            </Item>
-          )}
+          <Section>
+            <Header>Sektion 1</Header>
+            <Collection items={topics}>
+              {(topic: Topic) => (
+                <Item id={topic.id}>
+                  <ItemText slot="label">{topic.title}</ItemText>
+                  <ItemText slot="description">{topic.id}</ItemText>
+                </Item>
+              )}</Collection>
+          </Section>
         </ListBox>
 
         <div className="divider"></div>

@@ -69,8 +69,8 @@ export function Input({ className, ...props }: InputProps) {
 export function Text({ className, slot, ...props }: TextProps) {
 
     const classNameString = [
-        "label-text-alt",
-        slot == "errorMessage" ? "text-error" : "text-neutral",
+        "label-text-alt font-thin text-xs",
+        slot == "errorMessage" ? "text-error" : "",
         className
     ].join(" ");
 
