@@ -53,8 +53,8 @@ export function Item<T extends object>({ children, className, ...props }: ItemPr
             // isDropTarget
         } = props;
         return [
-            "btn font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 p-1 ",
-            isSelected ? "btn-accent" : "btn-ghost",
+            "btn font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 p-1 border-0 border-l-4 border-transparent",
+            isSelected ? "btn-ghost border-l-accent hover:border-l-accent" : "btn-ghost",
             isDisabled ? "btn-disabled" : "",
             userClassNameFn(props)
         ].join(" ");
@@ -100,7 +100,7 @@ export function Section<T extends object>({ children, className, ...props }: Sec
 export function Header({ children, className, ...props }: React.HTMLAttributes<HTMLElement>) {
 
     const classNameString = [
-        "text-xs uppercase tracking-widest px-1 pt-2 pb-1",
+        "menu-title pl-2 py-1",
         className
     ].join(" ");
 
