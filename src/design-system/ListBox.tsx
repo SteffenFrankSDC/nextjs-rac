@@ -71,6 +71,7 @@ export function Text({ className, slot, ...props }: TextProps) {
     const classNameString = [
         "font-normal",
         slot == "description" ? "font-thin text-xs" : "",
+        slot == "label" ? "font-semibold" : "",
         className
     ].join(" ");
 

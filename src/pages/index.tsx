@@ -90,6 +90,7 @@ const Content: React.FC = () => {
             <Collection items={topics}>
               {(topic: Topic) => (
                 <Item id={topic.id}>
+                  {/* {topic.title} */}
                   <ItemText slot="label">{topic.title}</ItemText>
                   <ItemText slot="description">{topic.id}</ItemText>
                 </Item>
