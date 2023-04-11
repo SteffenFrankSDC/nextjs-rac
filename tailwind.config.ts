@@ -4,7 +4,7 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      sans: ['Oswald', 'sans-serif'],
+      sans: ['Mulish', 'sans-serif'],
     },
     extend: {},
   },
@@ -13,20 +13,17 @@ export default {
     themes: [
       {
         mytheme: {
-          primary: "#383e42",
-          "primary-content": "#f2f2f2",
 
-          secondary: "#f0f0f0",
-          "secondary-content": "#383e42",
-
-          accent: "#06f304",
-          "accent-content": "#383e42",
-
-          neutral: "#a0a0a0",
-          "neutral-content": "#383e42",
-
+          "primary": "#383e42",
+          "primary-content": "#ffffff",
+          "secondary": "#7d7d7d",
+          "accent": "#06f304",
+          "neutral": "#252525",
           "base-100": "#ffffff",
-          "base-content": "#383e42",
+          "info": "#22aaff",
+          "success": "#22dd22",
+          "warning": "#ffaa22",
+          "error": "#ff2222",
 
           "--rounded-box": "0.1rem", // border radius rounded-box utility class, used in card and other large boxes
           "--rounded-btn": "0.1rem", // border radius rounded-btn utility class, used in buttons and similar element

@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useSession } from "next-auth/react";
 
 import { api, type RouterOutputs } from "../utils/api";
-import { AppHeader } from "../components/Header";
+import { AppHeader } from "../components/AppHeader";
 import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
 import { TextField, Label, Input, Text } from "~/design-system/TextField";
@@ -86,7 +86,7 @@ const Content: React.FC = () => {
             ([id]) => setSelectedTopic(topics?.find(topic => topic.id === id) ?? null)}
         >
           <Section>
-            <Header>Sektion 1</Header>
+            <Header>Topics</Header>
             <Collection items={topics}>
               {(topic: Topic) => (
                 <Item id={topic.id}>

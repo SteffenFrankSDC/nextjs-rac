@@ -53,8 +53,8 @@ export function Item<T extends object>({ children, className, ...props }: ItemPr
             // isDropTarget
         } = props;
         return [
-            "btn btn-ghost font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 p-1 ",
-            isSelected ? "btn-active" : "",
+            "btn font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 p-1 ",
+            isSelected ? "btn-accent" : "btn-ghost",
             isDisabled ? "btn-disabled" : "",
             userClassNameFn(props)
         ].join(" ");

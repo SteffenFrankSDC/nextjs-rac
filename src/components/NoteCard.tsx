@@ -33,7 +33,7 @@ export const NoteCard = ({
           </div>
         </div>
         <div className="card-actions mx-2 flex justify-end">
-          <Button className="btn-warning btn-xs px-5" onPress={onDelete}>
+          <Button className="btn-ghost hover:btn-error btn-xs" onPress={onDelete}>
             Delete
           </Button>
         </div>
