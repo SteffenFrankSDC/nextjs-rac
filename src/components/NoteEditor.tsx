@@ -3,8 +3,9 @@ import { useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
-import { Button } from "react-aria-components";
+
 import { Input } from "~/design-system/TextField";
+import { Button } from "~/design-system/Button";
 
 export const NoteEditor = ({
   onSave,
@@ -15,13 +16,13 @@ export const NoteEditor = ({
   const [title, setTitle] = useState<string>("");
 
   return (
-    <div className="card mt-5 border border-gray-200 bg-base-100 shadow-xl">
+    <div className="card border border-gray-200 bg-base-100 shadow-xl">
       <div className="card-body  m-0 p-3">
         <h2 className="card-title">
           <Input
             type="text"
             placeholder="Note title"
-            className="input-primary input-lg w-full font-bold"
+            className="w-full font-bold"
             value={title}
             onChange={(e) => setTitle(e.currentTarget.value)}
           />
@@ -40,7 +41,7 @@ export const NoteEditor = ({
           className="border border-gray-300"
         />
       </div>
-      <div className="card-actions m-5 flex justify-end">
+      <div className="card-actions m-3 flex justify-end">
         <Button
           onPress={() => {
             onSave({
@@ -50,7 +51,7 @@ export const NoteEditor = ({
             setCode("");
             setTitle("");
           }}
-          className="btn-primary btn px-5"
+          className="btn-primary"
           isDisabled={title.trim().length === 0 || code.trim().length === 0}
         >
           Save

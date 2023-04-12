@@ -21,7 +21,7 @@ export function ListBox<T extends object>({ children, className, ...props }: Lis
             // isDropTarget
         } = props;
         return [
-            "menu border p-2",
+            "menu border p-1",
             userClassNameFn(props)
         ].join(" ");
     }
@@ -57,7 +57,7 @@ export function Item<T extends object>({ children, className, ...props }: ItemPr
             isSelected ? "btn-ghost border-l-accent hover:border-l-accent" : "btn-ghost",
             isDisabled ? "btn-disabled" : "",
             userClassNameFn(props)
-        ].join(" ");
+        ].join(" ")
     }
     return (
         <RACItem {...props} className={classNameFn}>

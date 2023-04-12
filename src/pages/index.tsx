@@ -74,8 +74,8 @@ const Content: React.FC = () => {
   });
 
   return (
-    <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
-      <div className="px-2">
+    <div className="m-5 grid grid-cols-4 gap-4">
+      <div>
 
         <ListBox
           label="topics"
@@ -99,6 +99,7 @@ const Content: React.FC = () => {
         </ListBox>
 
         <div className="divider"></div>
+
         <TextField
           inputMode="text"
           onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -116,21 +117,21 @@ const Content: React.FC = () => {
           <Input
             className="w-full"
           />
-          <Label><Text slot="description">ENTER to create new topic</Text></Label>
+          <Label>
+            <Text slot="description">ENTER to create new topic</Text>
+          </Label>
         </TextField>
       </div>
 
-      <div className="col-span-3">
-        <div>
-          {notes?.map((note) => (
-            <div key={note.id} className="mt-5">
-              <NoteCard
-                note={note}
-                onDelete={() => void deleteNote.mutate({ id: note.id })}
-              />
-            </div>
-          ))}
-        </div>
+      <div className="col-span-3 flex flex-col gap-2">
+        {notes?.map((note) => (
+          <div key={note.id}>
+            <NoteCard
+              note={note}
+              onDelete={() => void deleteNote.mutate({ id: note.id })}
+            />
+          </div>
+        ))}
 
         <NoteEditor
           onSave={({ title, content }) => {
