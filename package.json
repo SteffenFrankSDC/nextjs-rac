@@ -7,7 +7,9 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@codemirror/lang-markdown": "^6.0.5",
@@ -32,6 +34,13 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.4",
+    "@storybook/addon-interactions": "^7.0.4",
+    "@storybook/addon-links": "^7.0.4",
+    "@storybook/blocks": "^7.0.4",
+    "@storybook/nextjs": "^7.0.4",
+    "@storybook/react": "^7.0.4",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@tailwindcss/typography": "^0.5.9",
     "@types/eslint": "^8.21.3",
     "@types/node": "^18.15.5",
@@ -44,10 +53,12 @@
     "daisyui": "^2.51.5",
     "eslint": "^8.36.0",
     "eslint-config-next": "^13.2.4",
+    "eslint-plugin-storybook": "^0.6.11",
     "postcss": "^8.4.21",
     "prettier": "^2.8.6",
     "prettier-plugin-tailwindcss": "^0.2.6",
     "prisma": "^4.11.0",
+    "storybook": "^7.0.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.0.2"
   },
