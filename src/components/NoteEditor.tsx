@@ -43,6 +43,7 @@ export const NoteEditor = ({
       </div>
       <div className="card-actions m-3 flex justify-end">
         <Button
+          semantics="primary"
           onPress={() => {
             onSave({
               title,
@@ -51,7 +52,6 @@ export const NoteEditor = ({
             setCode("");
             setTitle("");
           }}
-          className="btn-primary"
           isDisabled={title.trim().length === 0 || code.trim().length === 0}
         >
           Save
