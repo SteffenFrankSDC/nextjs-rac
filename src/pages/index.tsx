@@ -77,7 +77,7 @@ const Content: React.FC = () => {
   return (
     <div className="m-5 grid grid-cols-4 gap-4">
       <div>
-
+        <div className="mb-3 font-bold">Topics</div>
         <ListBox
           label="topics"
           items={topics}
@@ -86,17 +86,11 @@ const Content: React.FC = () => {
           onSelectionChange={
             ([id]) => setSelectedTopic(topics?.find(topic => topic.id === id) ?? null)}
         >
-          <Section>
-            <Header>Topics</Header>
-            <Collection items={topics}>
-              {(topic: Topic) => (
-                <Item id={topic.id}>
-                  {/* {topic.title} */}
-                  <ItemText slot="label">{topic.title}</ItemText>
-                  <ItemText slot="description">{topic.id}</ItemText>
-                </Item>
-              )}</Collection>
-          </Section>
+          {(topic: Topic) => (
+            <Item id={topic.id}>
+              {topic.title}
+            </Item>
+          )}
         </ListBox>
 
         <div className="divider"></div>
