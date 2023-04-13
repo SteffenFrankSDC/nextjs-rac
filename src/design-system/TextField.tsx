@@ -29,7 +29,7 @@ export function TextField({
     const childrenToRender = isReadOnly || isDisabled ?
         React.Children.map(children,
             child => React.isValidElement(child) ?
-                React.cloneElement(child as React.ReactElement<any>, { readOnly: isReadOnly, disabled: isDisabled })
+                React.cloneElement(child as React.ReactElement, { readOnly: isReadOnly, disabled: isDisabled })
                 : child
         ) : children;
 
