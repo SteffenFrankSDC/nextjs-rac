@@ -4,7 +4,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
 
-import { Input } from "~/design-system/TextField";
+import { Input } from "~/design-system/Input";
 import { Button } from "~/design-system/Button";
 
 export const NoteEditor = ({

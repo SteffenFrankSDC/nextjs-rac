@@ -7,7 +7,8 @@ import { api, type RouterOutputs } from "../utils/api";
 import { AppHeader } from "../components/AppHeader";
 import { NoteEditor } from "../components/NoteEditor";
 import { NoteCard } from "../components/NoteCard";
-import { TextField, Label, Input, Text } from "~/design-system/TextField";
+import { TextField, Label, Text } from "~/design-system/TextField";
+import { Input } from "~/design-system/Input";
 import { ListBox, Section, Header, Item, Text as ItemText } from "~/design-system/ListBox";
 import { Collection } from "react-aria-components";
 

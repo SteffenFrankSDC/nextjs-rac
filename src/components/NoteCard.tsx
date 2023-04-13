@@ -36,7 +36,7 @@ export const NoteCard = ({
           <Button
             variant="ghost"
             semantics="error"
-            size="xs"
+            scale="xs"
             onPress={onDelete}>
             Delete
           </Button>

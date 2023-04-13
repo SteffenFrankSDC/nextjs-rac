@@ -2,15 +2,17 @@ import React from "react";
 import { Button as RACButton } from "react-aria-components";
 
 import type {
-    ButtonProps as RACButtonProps,
-    ButtonRenderProps as RACButtonRenderProps
+    ButtonProps,
+    ButtonRenderProps
 } from "react-aria-components";
 
+import type { Semantics, Scale } from "./props";
+
 type ButtonStyleProps = {
-    semantics?: "primary" | "secondary" | "accent" | "warning" | "error" | "info",
+    semantics?: Semantics
     variant?: "outline" | "ghost" | "link" | "glass",
     shape?: "wide" | "block" | "circle" | "square",
-    size?: "xs" | "sm" | "md" | "lg",
+    scale?: Scale,
     isLoading?: boolean,
     isAnimated?: boolean,
 }
@@ -47,7 +49,7 @@ const shapeMapping = {
     square: "btn-square",
 }
 
-const sizeMapping = {
+const scaleMapping = {
     xs: "btn-xs",
     sm: "btn-sm",
     md: "btn-md",
@@ -60,14 +62,14 @@ export function Button({
     semantics,
     variant,
     shape,
-    size,
+    scale,
     isLoading,
     isAnimated = true,
-    ...props }: ButtonStyleProps & RACButtonProps) {
+    ...props }: ButtonStyleProps & ButtonProps) {
 
     const userClassNameFn = typeof className === "function" ? className : () => className;
 
-    const classNameFn = (props: RACButtonRenderProps) => {
+    const classNameFn = (props: ButtonRenderProps) => {
         const {
             isDisabled,
             isPressed,
@@ -81,7 +83,7 @@ export function Button({
             variant ? variantMapping[variant] : "",
             variant === "ghost" && semantics ? ghostSemanticsMapping[semantics] : "",
             shape ? shapeMapping[shape] : "",
-            size ? sizeMapping[size] : "",
+            scale ? scaleMapping[scale] : "",
             isLoading ? "loading" : "",
             isAnimated ? "" : "no-animation",
             isDisabled ? "btn-disabled" : "",

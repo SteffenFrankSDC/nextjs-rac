@@ -2,31 +2,42 @@ import React from "react";
 import {
     TextField as RACTextField,
     Label as RACLabel,
-    Input as RACInput,
     Text as RACText
 } from "react-aria-components";
 
 import type {
     TextFieldProps,
     LabelProps,
-    InputProps,
-    InputRenderProps,
     TextProps
 } from "react-aria-components";
 
-
-export function TextField({ children, className, ...props }: TextFieldProps) {
+export function TextField({
+    isDisabled,
+    isReadOnly,
+    validationState,
+    // isRequired,
+    className,
+    children,
+    ...props }: TextFieldProps) {
 
     const classNameString = [
         "form-control",
+        validationState === "invalid" ? "[&>input]:input-error" : "",
         className
     ].join(" ");
+
+    const childrenToRender = isReadOnly || isDisabled ?
+        React.Children.map(children,
+            child => React.isValidElement(child) ?
+                React.cloneElement(child as React.ReactElement<any>, { readOnly: isReadOnly, disabled: isDisabled })
+                : child
+        ) : children;
 
     return <RACTextField
         className={classNameString}
         {...props}
     >
-        {children}
+        {childrenToRender}
     </RACTextField >;
 }
 
@@ -41,29 +52,6 @@ export function Label({ className, ...props }: LabelProps) {
         className={classNameString}
         {...props}
     />;
-}
-
-export function Input({ className, ...props }: InputProps) {
-
-    const userClassNameFn = typeof className === "function" ? className : () => className;
-
-    const classNameFn = (props: InputRenderProps) => {
-        const {
-            // isDisabled,
-            // isHovered,
-            // isFocused,
-            // isFocusVisible,
-        } = props;
-        return [
-            "input input-bordered",
-            userClassNameFn(props)
-        ].join(" ");
-    }
-
-    return <RACInput
-        className={classNameFn}
-        {...props}
-    />
 }
 
 export function Text({ className, slot, ...props }: TextProps) {
