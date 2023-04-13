@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ListBox, Section, Item, Text, Header } from './ListBox';
+import { useListData } from 'react-stately';
+import { useDragAndDrop } from 'react-aria-components';
 
 const meta: Meta<typeof ListBox> = {
     component: ListBox,
@@ -113,6 +115,45 @@ export const Empty: ListBoxStory = {
     }
 };
 
+function ReorderableListBox() {
 
+    const list = useListData({
+        initialItems: [
+            { id: 1, name: 'Hamburg' },
+            { id: 2, name: 'Berlin' },
+            { id: 3, name: 'Da Nang' },
+            { id: 4, name: 'Dortmund' },
+            { id: 5, name: 'Rome' }
+        ]
+    });
+
+    const { dragAndDropHooks } = useDragAndDrop({
+        getItems: (keys) =>
+            [...keys].map((key) => ({ 'text/plain': list.getItem(key).name })),
+        onReorder(e) {
+            if (e.target.dropPosition === 'before') {
+                list.moveBefore(e.target.key, e.keys);
+            } else if (e.target.dropPosition === 'after') {
+                list.moveAfter(e.target.key, e.keys);
+            }
+        }
+    });
+
+    return (
+        <ListBox
+            aria-label="Reorderable list"
+            selectionMode="multiple"
+            items={list.items}
+            dragAndDropHooks={dragAndDropHooks}
+        >
+            {(item) => <Item>{item.name}</Item>}
+        </ListBox>
+    );
+}
+
+export const Reorderable: ListBoxStory = {
+    render: () => <ReorderableListBox />,
+    args: {}
+};
 
 

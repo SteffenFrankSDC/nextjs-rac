@@ -37,6 +37,7 @@ export function ListBox<T extends object>({
         } = props;
         return [
             "menu p-1",
+            "[&>.react-aria-DropIndicator]:border [&>.react-aria-DropIndicator]:border-accent",
             hasBorder ? "border" : "",
             userClassNameFn(props)
         ].join(" ");
@@ -69,6 +70,7 @@ export function Item<T extends object>({ children, className, ...props }: ItemPr
             // isDragging,
             // isDropTarget
         } = props;
+
         return [
             "btn font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 p-1 border-0",
             isSelected ? "border-l-2 btn-ghost border-l-accent hover:border-l-accent ml-1 pl-1" : "btn-ghost",
