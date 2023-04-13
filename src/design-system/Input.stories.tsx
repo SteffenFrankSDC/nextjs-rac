@@ -9,7 +9,7 @@ const meta: Meta<typeof Input> = {
 export default meta;
 type InputStory = StoryObj<typeof Input>;
 
-export const PlainInput: InputStory = {
+export const Basic: InputStory = {
     render: (args) => (<Input {...args} />),
     args: { className: "" }
 };

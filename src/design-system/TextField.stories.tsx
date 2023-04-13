@@ -10,7 +10,7 @@ const meta: Meta<typeof TextField> = {
 export default meta;
 type TextFieldStory = StoryObj<typeof TextField>;
 
-export const InputTextField: TextFieldStory = {
+export const Basic: TextFieldStory = {
     render: (args) => (
         <TextField {...args}>
             <Label>Please enter something</Label>

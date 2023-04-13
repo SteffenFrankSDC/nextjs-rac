@@ -7,9 +7,24 @@ import {
     Text as RACText
 } from "react-aria-components";
 
-import type { ListBoxProps, ListBoxRenderProps, ItemProps, ItemRenderProps, SectionProps, TextProps } from "react-aria-components";
+import type {
+    ListBoxProps,
+    ListBoxRenderProps,
+    ItemProps,
+    ItemRenderProps,
+    SectionProps,
+    TextProps
+} from "react-aria-components";
 
-export function ListBox<T extends object>({ children, className, ...props }: ListBoxProps<T>) {
+type ListBoxStyleProps = {
+    hasBorder?: boolean
+}
+
+export function ListBox<T extends object>({
+    children,
+    hasBorder = true,
+    className,
+    ...props }: ListBoxStyleProps & ListBoxProps<T>) {
 
     const userClassNameFn = typeof className === "function" ? className : () => className;
 
@@ -21,7 +36,8 @@ export function ListBox<T extends object>({ children, className, ...props }: Lis
             // isDropTarget
         } = props;
         return [
-            "menu border p-1",
+            "menu p-1",
+            hasBorder ? "border" : "",
             userClassNameFn(props)
         ].join(" ");
     }
@@ -32,6 +48,7 @@ export function ListBox<T extends object>({ children, className, ...props }: Lis
         </RACListBox>
     );
 }
+
 
 export function Item<T extends object>({ children, className, ...props }: ItemProps<T>) {
 
@@ -53,9 +70,9 @@ export function Item<T extends object>({ children, className, ...props }: ItemPr
             // isDropTarget
         } = props;
         return [
-            "btn font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 p-1 border-0 border-l-4 border-transparent",
+            "btn font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 mx-1 p-1 border-0 border-l-2 border-transparent",
             isSelected ? "btn-ghost border-l-accent hover:border-l-accent" : "btn-ghost",
-            isDisabled ? "btn-disabled" : "",
+            isDisabled ? "btn-disabled bg-transparent" : "",
             userClassNameFn(props)
         ].join(" ")
     }
@@ -100,7 +117,7 @@ export function Section<T extends object>({ children, className, ...props }: Sec
 export function Header({ children, className, ...props }: React.HTMLAttributes<HTMLElement>) {
 
     const classNameString = [
-        "menu-title pl-2 py-1",
+        "menu-title pl-1 pt-2 pb-1",
         className
     ].join(" ");
 

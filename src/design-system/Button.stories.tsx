@@ -10,7 +10,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 
-export const AllVariants: Story = {
+export const Basic: Story = {
     render: (args) => <Button {...args}>Label</Button>,
     args: { className: "" }
 };

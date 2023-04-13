@@ -13,6 +13,7 @@ import type { Semantics, Scale } from "./props";
 type InputStyleProps = {
     semantics?: Semantics,
     scale?: Scale,
+    hasBorder?: boolean
 }
 
 const semanticsMapping = {
@@ -31,7 +32,7 @@ const scaleMapping = {
     lg: "input-lg",
 }
 
-export function Input({ semantics, scale, className, ...props }: InputStyleProps & InputProps) {
+export function Input({ semantics, scale, hasBorder = true, className, ...props }: InputStyleProps & InputProps) {
 
     const userClassNameFn = typeof className === "function" ? className : () => className;
 
@@ -43,7 +44,8 @@ export function Input({ semantics, scale, className, ...props }: InputStyleProps
             // isFocusVisible,
         } = props;
         return [
-            "input input-bordered",
+            "input",
+            hasBorder ? "input-bordered" : "",
             semantics ? semanticsMapping[semantics] : "",
             scale ? scaleMapping[scale] : "",
             userClassNameFn(props)

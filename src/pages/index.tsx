@@ -112,15 +112,9 @@ const Content: React.FC = () => {
             }
           }}
         >
-          <Label>
-            New Topic
-          </Label>
-          <Input
-            className="w-full"
-          />
-          <Label>
-            <Text slot="description">ENTER to create new topic</Text>
-          </Label>
+          <Label>New Topic</Label>
+          <Input />
+          <Label><Text slot="description">ENTER to create new topic</Text></Label>
         </TextField>
       </div>
 
