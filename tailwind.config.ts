@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss/plugin';
+
 import { type Config } from "tailwindcss";
 
 export default {
@@ -8,7 +10,14 @@ export default {
     },
     extend: {},
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+    plugin(function ({ addBase }) {
+      addBase({
+        html: { fontSize: '14px' },
+      })
+    })],
   daisyui: {
     themes: [
       {
