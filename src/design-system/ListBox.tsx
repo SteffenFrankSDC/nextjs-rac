@@ -37,7 +37,8 @@ export function ListBox<T extends object>({
         } = props;
         return [
             "menu p-1",
-            "[&>.react-aria-DropIndicator]:border [&>.react-aria-DropIndicator]:border-accent",
+            "[&>.react-aria-DropIndicator]:outline [&>.react-aria-DropIndicator]:outline-accent [&>.react-aria-DropIndicator]:outline [&>.react-aria-DropIndicator]:outline-1",
+            "[&>*[data-dragging]]:opacity-20 [&>*[data-dragging]]:bg-transparent",
             hasBorder ? "border" : "",
             userClassNameFn(props)
         ].join(" ");
@@ -105,7 +106,7 @@ export function Text({ className, slot, ...props }: TextProps) {
 export function Section<T extends object>({ children, className, ...props }: SectionProps<T>) {
 
     const classNameString = [
-        "menu my-1",
+        "menu my-1 group/section",
         className
     ].join(" ");
 
@@ -119,7 +120,7 @@ export function Section<T extends object>({ children, className, ...props }: Sec
 export function Header({ children, className, ...props }: React.HTMLAttributes<HTMLElement>) {
 
     const classNameString = [
-        "menu-title pl-1 pt-2 pb-1",
+        "menu-title pl-1 mt-2 group-first/section:mt-0 pb-1",
         className
     ].join(" ");
 
