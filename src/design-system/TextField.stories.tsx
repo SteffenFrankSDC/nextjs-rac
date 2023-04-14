@@ -17,7 +17,7 @@ export const Basic: TextFieldStory = {
             <Input />
         </TextField>),
     args: {
-        className: "",
+        className: "w-64",
         isReadOnly: false,
         isDisabled: false,
         validationState: "valid"
@@ -28,17 +28,17 @@ export const WithAltText: TextFieldStory = {
     render: (args) => (
         <TextField  {...args}>
             <Label>
-                Please enter something
-                <Text slot="description">This is a description</Text>
+                Label
+                <Text slot="description">description</Text>
             </Label>
             <Input />
             <Label>
-                <Text slot="description">This is a description</Text>
-                <Text slot="errorMessage">This is an error message</Text>
+                <Text slot="description">description</Text>
+                <Text slot="errorMessage"> error message</Text>
             </Label>
         </TextField>),
     args: {
-        className: "",
+        className: "w-64",
         isReadOnly: false,
         isDisabled: false,
         validationState: "valid"

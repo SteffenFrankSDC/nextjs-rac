@@ -20,7 +20,7 @@ export const Basic: ListBoxStory = {
             <Item>Hanoi</Item>
         </ListBox>),
     args: {
-        className: "",
+        className: "w-64",
         selectionMode: "single",
     }
 };
@@ -41,7 +41,7 @@ export const Sections: ListBoxStory = {
             </Section>
         </ListBox>),
     args: {
-        className: "",
+        className: "w-64",
         selectionMode: "multiple",
     }
 };
@@ -62,7 +62,7 @@ export const DisabledItems: ListBoxStory = {
             </Section>
         </ListBox>),
     args: {
-        className: "",
+        className: "w-64",
         selectionMode: "multiple",
         disabledKeys: ["do", "b"]
     }
@@ -99,7 +99,7 @@ export const ComplexItems: ListBoxStory = {
             </Section>
         </ListBox>),
     args: {
-        className: "",
+        className: "w-64",
         selectionMode: "multiple",
         disabledKeys: ["do", "b"]
     }
@@ -110,7 +110,7 @@ export const Empty: ListBoxStory = {
         <ListBox {...args} >
         </ListBox>),
     args: {
-        className: "",
+        className: "w-64",
         renderEmptyState: () => <div className='text-xs italic text-center m-2'>there is nothing here</div>
     }
 };
@@ -145,6 +145,7 @@ function ReorderableListBox() {
             selectionMode="multiple"
             items={list.items}
             dragAndDropHooks={dragAndDropHooks}
+            className="w-64"
         >
             {(item) => <Item>{item.name}</Item>}
         </ListBox>
