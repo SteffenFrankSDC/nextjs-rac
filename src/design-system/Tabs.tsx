@@ -63,12 +63,33 @@ export function TabList<T extends object>({
             orientation
         } = props;
         return [
+            // for vertical orientation, stack tabs in a flex-box column and shift labels to the left
             orientation === "vertical" ? "w-fit flex flex-col [&>.react-aria-Tab]:justify-start" : "",
+
+            // boxed style is applied on the tabs-list level
             variant === "boxed" ? "tabs-boxed" : "",
+
+            // bordered style must be applied to each individual tab
             variant === "bordered" ? "[&>.react-aria-Tab]:tab-bordered" : "",
-            variant === "lifted" ? "[&>.react-aria-Tab]:tab-lifted" : "",
+
+            // for vertical bordered tabs, put the border on the right
             orientation === "vertical" && variant === "bordered"
                 ? "[&>.react-aria-Tab]:border-b-0 [&>.react-aria-Tab]:border-r-2"
+                : "",
+
+            // lifted style must be applied to each individual tab
+            orientation === "horizontal" && variant === "lifted" ? "[&>.react-aria-Tab]:tab-lifted" : "",
+
+            // for vertical lifted tabs, we must completely re-write the styles 
+            orientation === "vertical" && variant === "lifted"
+                ?
+                "[&>.react-aria-Tab]:border " +
+                "[&>.react-aria-Tab[aria-selected='true']]:!border-[--tab-border-color] " +
+                "[&>.react-aria-Tab[aria-selected='true']]:!border-r-transparent " +
+                "[&>.react-aria-Tab[aria-selected='true']]:!rounded-l-[--tab-radius] " +
+                "[&>.react-aria-Tab[aria-selected='true']]:!bg-[--tab-bg] " +
+                "[&>.react-aria-Tab[aria-selected='false']]:!border-transparent " +
+                "[&>.react-aria-Tab[aria-selected='false']]:!border-r-[--tab-border-color] "
                 : "",
             scale === "xs" ? "[&>.react-aria-Tab]:tab-xs" : "",
             scale === "sm" ? "[&>.react-aria-Tab]:tab-sm" : "",
