@@ -78,6 +78,7 @@ export function Button({
             // isFocusVisible,
         } = props;
         return [
+            "react-aria-Button",
             "btn",
             semantics ? semanticsMapping[semantics] : "",
             variant ? variantMapping[variant] : "",

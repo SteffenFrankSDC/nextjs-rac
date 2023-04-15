@@ -36,6 +36,7 @@ export function ListBox<T extends object>({
             // isDropTarget
         } = props;
         return [
+            "react-aria-ListBox",
             "menu p-1",
             "[&>.react-aria-DropIndicator]:outline [&>.react-aria-DropIndicator]:outline-accent [&>.react-aria-DropIndicator]:outline [&>.react-aria-DropIndicator]:outline-1",
             "[&>*[data-dragging]]:opacity-20 [&>*[data-dragging]]:bg-transparent",
@@ -73,7 +74,9 @@ export function Item<T extends object>({ children, className, ...props }: ItemPr
         } = props;
 
         return [
-            "btn font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 p-1 border-0",
+            "react-aria-Item",
+            "btn",
+            "font-normal h-fit min-h-fit flex-col items-start text-left gap-1 my-1 p-1 border-0",
             isSelected ? "border-l-2 btn-ghost border-l-accent hover:border-l-accent ml-1 pl-1" : "btn-ghost",
             isDisabled ? "btn-disabled bg-transparent" : "",
             userClassNameFn(props)
@@ -89,6 +92,7 @@ export function Item<T extends object>({ children, className, ...props }: ItemPr
 export function Text({ className, slot, ...props }: TextProps) {
 
     const classNameString = [
+        "react-aria-Text",
         "font-normal",
         slot == "description" ? "font-thin text-xs" : "",
         slot == "label" ? "font-semibold" : "",
@@ -106,6 +110,7 @@ export function Text({ className, slot, ...props }: TextProps) {
 export function Section<T extends object>({ children, className, ...props }: SectionProps<T>) {
 
     const classNameString = [
+        "react-aria-Section",
         "menu my-1 group/section",
         className
     ].join(" ");
@@ -120,6 +125,7 @@ export function Section<T extends object>({ children, className, ...props }: Sec
 export function Header({ children, className, ...props }: React.HTMLAttributes<HTMLElement>) {
 
     const classNameString = [
+        "react-aria-Header",
         "menu-title pl-1 mt-2 group-first/section:mt-0 pb-1",
         className
     ].join(" ");

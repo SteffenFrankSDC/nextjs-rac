@@ -31,6 +31,7 @@ export function Tabs({
             orientation
         } = props;
         return [
+            "react-aria-Tabs",
             "flex",
             orientation === "vertical" ? "flex-row" : "flex-col",
             userClassNameFn(props)
@@ -63,6 +64,7 @@ export function TabList<T extends object>({
             orientation
         } = props;
         return [
+            "react-aria-TabsList",
             // for vertical orientation, stack tabs in a flex-box column and shift labels to the left
             orientation === "vertical" ? "w-fit flex flex-col [&>.react-aria-Tab]:justify-start" : "",
 
@@ -124,7 +126,8 @@ export function Tab({ children, className, ...props }: TabProps & TabListStylePr
         } = props;
 
         return [
-            "react-aria-Tab tab",
+            "react-aria-Tab",
+            "tab",
             isSelected ? "tab-active" : "",
             isDisabled ? "tab-disabled" : "",
             userClassNameFn(props)
@@ -146,7 +149,7 @@ export function TabPanels<T extends object>({ ...props }: TabPanelsProps<T>) {
 export function TabPanel({ children, className, ...props }: TabPanelProps) {
 
     const classNameString = [
-        "",
+        "react-aria-TabPanel",
         className
     ].join(" ");
 

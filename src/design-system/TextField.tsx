@@ -21,6 +21,7 @@ export function TextField({
     ...props }: TextFieldProps) {
 
     const classNameString = [
+        "react-aria-TextField",
         "form-control",
         validationState === "invalid" ? "[&>input]:input-error" : "",
         className
@@ -44,6 +45,7 @@ export function TextField({
 export function Label({ className, ...props }: LabelProps) {
 
     const classNameString = [
+        "react-aria-Label",
         "label label-text",
         className
     ].join(" ");
@@ -57,6 +59,7 @@ export function Label({ className, ...props }: LabelProps) {
 export function Text({ className, slot, ...props }: TextProps) {
 
     const classNameString = [
+        "react-aria-Text",
         "label-text-alt font-thin text-xs",
         slot == "errorMessage" ? "text-error" : "",
         className

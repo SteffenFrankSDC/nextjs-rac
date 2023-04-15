@@ -44,6 +44,7 @@ export function Input({ semantics, scale, hasBorder = true, className, ...props 
             // isFocusVisible,
         } = props;
         return [
+            "react-aria-Input",
             "input",
             hasBorder ? "input-bordered" : "",
             semantics ? semanticsMapping[semantics] : "",
