@@ -67,6 +67,9 @@ export function TabList<T extends object>({
             variant === "boxed" ? "tabs-boxed" : "",
             variant === "bordered" ? "[&>.react-aria-Tab]:tab-bordered" : "",
             variant === "lifted" ? "[&>.react-aria-Tab]:tab-lifted" : "",
+            orientation === "vertical" && variant === "bordered"
+                ? "[&>.react-aria-Tab]:border-b-0 [&>.react-aria-Tab]:border-r-2"
+                : "",
             scale === "xs" ? "[&>.react-aria-Tab]:tab-xs" : "",
             scale === "sm" ? "[&>.react-aria-Tab]:tab-sm" : "",
             scale === "md" ? "[&>.react-aria-Tab]:tab-md" : "",
