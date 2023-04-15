@@ -163,8 +163,8 @@ export const VerticalBordered: TabsStory = {
 
 export const VerticalLifted: TabsStory = {
     render: (args) => (
-        <Tabs {...args} orientation="vertical" >
-            <TabList variant="lifted">
+        <Tabs {...args} orientation="vertical"  >
+            <TabList variant="lifted" >
                 <Tab id="p">Paris</Tab>
                 <Tab id="b">Frankfurt</Tab>
                 <Tab id="h">Hanoi</Tab>
@@ -174,7 +174,7 @@ export const VerticalLifted: TabsStory = {
                 <TabPanel id="b" className="m-2">Guten Tag!</TabPanel>
                 <TabPanel id="h" className="m-2">Xin chào!</TabPanel>
             </TabPanels>
-        </Tabs>),
+        </Tabs >),
     args: {
         className: "",
     }

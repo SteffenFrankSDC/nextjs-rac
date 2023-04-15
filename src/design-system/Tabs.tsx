@@ -84,6 +84,8 @@ export function TabList<T extends object>({
             orientation === "vertical" && variant === "lifted"
                 ?
                 "[&>.react-aria-Tab]:border " +
+                "[&>.react-aria-Tab]:p-[--tab-padding] " +
+                "[&>.react-aria-Tab]:box-content " +
                 "[&>.react-aria-Tab[aria-selected='true']]:!border-[--tab-border-color] " +
                 "[&>.react-aria-Tab[aria-selected='true']]:!border-r-transparent " +
                 "[&>.react-aria-Tab[aria-selected='true']]:!rounded-l-[--tab-radius] " +
