@@ -14,13 +14,13 @@ export const Basic: TabsStory = {
         <Tabs {...args} >
             <TabList>
                 <Tab id="p">Paris</Tab>
-                <Tab id="b">Berlin</Tab>
+                <Tab id="b">Frankfurt</Tab>
                 <Tab id="h">Hanoi</Tab>
             </TabList>
             <TabPanels>
-                <TabPanel id="p" className="mt-2">Bonjour!</TabPanel>
-                <TabPanel id="b" className="mt-2">Guten Tag!</TabPanel>
-                <TabPanel id="h" className="mt-2">Xin chào!</TabPanel>
+                <TabPanel id="p" className="m-2">Bonjour!</TabPanel>
+                <TabPanel id="b" className="m-2">Guten Tag!</TabPanel>
+                <TabPanel id="h" className="m-2">Xin chào!</TabPanel>
             </TabPanels>
         </Tabs>),
     args: {
@@ -33,13 +33,13 @@ export const Boxed: TabsStory = {
         <Tabs {...args} >
             <TabList variant="boxed">
                 <Tab id="p">Paris</Tab>
-                <Tab id="b">Berlin</Tab>
+                <Tab id="b">Frankfurt</Tab>
                 <Tab id="h">Hanoi</Tab>
             </TabList>
             <TabPanels>
-                <TabPanel id="p" className="mt-2">Bonjour!</TabPanel>
-                <TabPanel id="b" className="mt-2">Guten Tag!</TabPanel>
-                <TabPanel id="h" className="mt-2">Xin chào!</TabPanel>
+                <TabPanel id="p" className="m-2">Bonjour!</TabPanel>
+                <TabPanel id="b" className="m-2">Guten Tag!</TabPanel>
+                <TabPanel id="h" className="m-2">Xin chào!</TabPanel>
             </TabPanels>
         </Tabs>),
     args: {
@@ -52,13 +52,13 @@ export const Lifted: TabsStory = {
         <Tabs {...args} >
             <TabList variant="lifted">
                 <Tab id="p">Paris</Tab>
-                <Tab id="b">Berlin</Tab>
+                <Tab id="b">Frankfurt</Tab>
                 <Tab id="h">Hanoi</Tab>
             </TabList>
             <TabPanels>
-                <TabPanel id="p" className="mt-2">Bonjour!</TabPanel>
-                <TabPanel id="b" className="mt-2">Guten Tag!</TabPanel>
-                <TabPanel id="h" className="mt-2">Xin chào!</TabPanel>
+                <TabPanel id="p" className="m-2">Bonjour!</TabPanel>
+                <TabPanel id="b" className="m-2">Guten Tag!</TabPanel>
+                <TabPanel id="h" className="m-2">Xin chào!</TabPanel>
             </TabPanels>
         </Tabs>),
     args: {
@@ -71,13 +71,13 @@ export const ExtraSmallBordered: TabsStory = {
         <Tabs {...args} >
             <TabList variant="bordered" scale="xs">
                 <Tab id="p">Paris</Tab>
-                <Tab id="b">Berlin</Tab>
+                <Tab id="b">Frankfurt</Tab>
                 <Tab id="h">Hanoi</Tab>
             </TabList>
             <TabPanels>
-                <TabPanel id="p" className="mt-2">Bonjour!</TabPanel>
-                <TabPanel id="b" className="mt-2">Guten Tag!</TabPanel>
-                <TabPanel id="h" className="mt-2">Xin chào!</TabPanel>
+                <TabPanel id="p" className="m-2">Bonjour!</TabPanel>
+                <TabPanel id="b" className="m-2">Guten Tag!</TabPanel>
+                <TabPanel id="h" className="m-2">Xin chào!</TabPanel>
             </TabPanels>
         </Tabs>),
     args: {
@@ -90,13 +90,13 @@ export const SmallLifted: TabsStory = {
         <Tabs {...args} >
             <TabList variant="lifted" scale="sm">
                 <Tab id="p">Paris</Tab>
-                <Tab id="b">Berlin</Tab>
+                <Tab id="b">Frankfurt</Tab>
                 <Tab id="h">Hanoi</Tab>
             </TabList>
             <TabPanels>
-                <TabPanel id="p" className="mt-2">Bonjour!</TabPanel>
-                <TabPanel id="b" className="mt-2">Guten Tag!</TabPanel>
-                <TabPanel id="h" className="mt-2">Xin chào!</TabPanel>
+                <TabPanel id="p" className="m-2">Bonjour!</TabPanel>
+                <TabPanel id="b" className="m-2">Guten Tag!</TabPanel>
+                <TabPanel id="h" className="m-2">Xin chào!</TabPanel>
             </TabPanels>
         </Tabs>),
     args: {
@@ -109,13 +109,32 @@ export const LargeBoxed: TabsStory = {
         <Tabs {...args} >
             <TabList variant="boxed" scale="lg">
                 <Tab id="p">Paris</Tab>
-                <Tab id="b">Berlin</Tab>
+                <Tab id="b">Frankfurt</Tab>
                 <Tab id="h">Hanoi</Tab>
             </TabList>
             <TabPanels>
-                <TabPanel id="p" className="mt-2">Bonjour!</TabPanel>
-                <TabPanel id="b" className="mt-2">Guten Tag!</TabPanel>
-                <TabPanel id="h" className="mt-2">Xin chào!</TabPanel>
+                <TabPanel id="p" className="m-2">Bonjour!</TabPanel>
+                <TabPanel id="b" className="m-2">Guten Tag!</TabPanel>
+                <TabPanel id="h" className="m-2">Xin chào!</TabPanel>
+            </TabPanels>
+        </Tabs>),
+    args: {
+        className: "",
+    }
+};
+
+export const VerticalBoxed: TabsStory = {
+    render: (args) => (
+        <Tabs {...args} orientation="vertical" >
+            <TabList variant="boxed">
+                <Tab id="p">Paris</Tab>
+                <Tab id="b">Frankfurt</Tab>
+                <Tab id="h">Hanoi</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel id="p" className="m-2">Bonjour!</TabPanel>
+                <TabPanel id="b" className="m-2">Guten Tag!</TabPanel>
+                <TabPanel id="h" className="m-2">Xin chào!</TabPanel>
             </TabPanels>
         </Tabs>),
     args: {

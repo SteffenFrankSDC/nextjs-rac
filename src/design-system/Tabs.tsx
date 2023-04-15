@@ -16,7 +16,7 @@ import type {
     TabRenderProps,
     TabsRenderProps
 } from "react-aria-components";
-import { Scale } from "./props";
+import type { Scale } from "./props";
 
 export function Tabs({
     children,
@@ -31,7 +31,8 @@ export function Tabs({
             orientation
         } = props;
         return [
-            orientation === "vertical" ? "TODO" : "TODO",
+            "flex",
+            orientation === "vertical" ? "flex-row" : "flex-col",
             userClassNameFn(props)
         ].join(" ");
     }
@@ -62,7 +63,7 @@ export function TabList<T extends object>({
             orientation
         } = props;
         return [
-            orientation === "vertical" ? "TODO" : "tabs",
+            orientation === "vertical" ? "w-fit flex flex-col [&>.react-aria-Tab]:justify-start" : "",
             variant === "boxed" ? "tabs-boxed" : "",
             variant === "bordered" ? "[&>.react-aria-Tab]:tab-bordered" : "",
             variant === "lifted" ? "[&>.react-aria-Tab]:tab-lifted" : "",
